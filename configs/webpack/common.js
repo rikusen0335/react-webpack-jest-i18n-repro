@@ -25,7 +25,22 @@ module.exports = {
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-       type: "asset/resource",
+        type: "asset/resource",
+      },
+      {
+        test: /.\.yml$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[path][name].json",
+              context: "src",
+            },
+          },
+          {
+            loader: "yaml-loader",
+          },
+        ],
       },
     ],
   },
