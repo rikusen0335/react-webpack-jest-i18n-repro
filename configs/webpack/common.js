@@ -28,19 +28,8 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /.\.yml$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[path][name].json",
-              context: "src",
-            },
-          },
-          {
-            loader: "yaml-loader",
-          },
-        ],
+        test: /.\.ya?ml$/,
+        loader: "yaml-loader",
       },
     ],
   },
